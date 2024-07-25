@@ -8,6 +8,8 @@ pipeline {
                 source venv/bin/activate
                 pip install pip --upgrade
                 pip install -r requirements.txt
+                export FLASK_APP=application
+                flask run &
                 '''
             }
         }
@@ -15,8 +17,6 @@ pipeline {
             steps {
                 sh '''#!/bin/bash
                 source venv/bin/activate
-                pip install pip --upgrade
-                pip install -r requirements.txt
                 py.test --verbose --junit-xml test-reports/results.xml
                 '''
             }
