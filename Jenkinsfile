@@ -8,8 +8,6 @@ pipeline {
                 source venv/bin/activate
                 pip install pip --upgrade
                 pip install -r requirements.txt
-                python database.py
-                python load_data.py
                 '''
             }
         }
